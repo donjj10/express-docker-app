@@ -26,5 +26,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/dexpress:latest
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/express-app:latest
+            ${{ secrets.DOCKER_USERNAME }}/express-app:${{ github.sha }}
+  
 
