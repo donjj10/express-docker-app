@@ -1,0 +1,14 @@
+services:
+  expressapp:
+   image: donjj/express-app:latest
+   ports:
+     - "8080:8080" 
+
+
+  watchtower:
+    image: nickfedor/watchtower
+    environment:
+      - WATCHTOWER_POLL_INTERNAL=60
+    volumes:
+      - /var/run/docker.socket:/var/run/docker.sock
+    container_name: watchtower
